@@ -42,7 +42,7 @@ func NewFromPoints(points []image.Point, bounds image.Rectangle) *Voronoi {
 }
 
 func (v *Voronoi) init() {
-	
+
 	v.EventQueue = NewEventQueue(v.Sites)
 
 	v.ParabolaTree = nil
@@ -57,7 +57,6 @@ func (v *Voronoi) Reset() {
 	v.DCEL = dcel.NewDCEL()
 }
 
-.
 func (v *Voronoi) HandleNextEvent() {
 	if v.EventQueue.Len() <= 0 {
 		return
@@ -146,7 +145,6 @@ func (v *Voronoi) handleSiteEvent(event *Event) {
 	vertex := v.DCEL.NewVertex(event.Site.X, y)
 	log.Printf("Y of intersection = %d,%d\r\n", vertex.X, vertex.Y)
 
-	
 	arcAbove.Right = &Node{
 		Site:       arcAbove.Site,
 		LeftEvents: arcAbove.LeftEvents,
